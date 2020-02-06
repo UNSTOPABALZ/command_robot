@@ -40,7 +40,7 @@ public class DriveCommand extends CommandBase {
     Robot.DriveSystem.setright(0);
   }
 
-  // Returns true when the command should end.
+  //Returns true when the command should end.
   @Override
   public boolean isFinished() {
     return isTimedOut();
