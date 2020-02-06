@@ -18,17 +18,15 @@ public class DriveSystem extends SubsystemBase {
 
     public SpeedController frontLeft = new PWMVictorSPX(Constants.frontLeftMotor);
     public SpeedController rearLeft = new PWMVictorSPX(Constants.rearLeftMotor);
-    public SpeedControllerGroup left = new SpeedControllerGroup(frontLeft, rearLeft);
-
     public SpeedController frontRight = new PWMVictorSPX(Constants.frontRightMotor);
     public SpeedController rearRight = new PWMVictorSPX(Constants.rearRightMotor);
     public SpeedControllerGroup right = new SpeedControllerGroup(frontRight, rearRight);
-  
+    public SpeedControllerGroup left = new SpeedControllerGroup(frontLeft, rearLeft);
+
     public DifferentialDrive robotDrive = new DifferentialDrive(left, right);
 
-  public DriveSystem() {
-    SpeedControllerGroup left = new SpeedControllerGroup(frontLeft, rearLeft);
-    SpeedControllerGroup right = new SpeedControllerGroup(frontRight, rearRight);
+    public void manualDrive(double move, double turn) {
+      robotDrive.arcadeDrive(move,turn);
     }
 
   @Override
